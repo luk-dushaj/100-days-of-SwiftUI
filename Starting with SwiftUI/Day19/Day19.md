@@ -16,7 +16,7 @@ If you were going for length conversion you might have:
 - A second segmented control for meters, kilometers, feet, yard, or miles, for the output unit.
 - A text field where users enter a number.
 - A text view showing the result of the conversion.
-- 
+
 So, if you chose meters for source unit and feet for output unit, then entered 10, you’d see 32.81 as the output.
 
 I will say the app and the logic of the app wasn't hard I got all of it done in a day. Only thing I struggled with was getting my enum to work with my Picker. All that struggling was for a single line of code I missed...
