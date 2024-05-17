@@ -8,7 +8,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    enum Unit: CaseIterable, Identifiable {
+    enum Unit: CaseIterable {
         case meters, kilometers, feet, yard, miles
         
         var id: Self { self }
