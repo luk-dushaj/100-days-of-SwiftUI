@@ -13,6 +13,9 @@ struct ContentView: View {
     @State private var score = 0
     @State private var showingScore = false
     @State private var scoreTitle = ""
+    @State private var message = ""
+    @State private var round = 1
+    @State private var isGameOver: Bool = false
 
     var body: some View {
         ZStack {
@@ -55,6 +58,8 @@ struct ContentView: View {
                 .clipShape(.rect(cornerRadius: 20))
 
                 Spacer()
+                Text("Round: \(round)/8")
+                    .foregroundStyle(.white)
                 Spacer()
 
                 Text("Score: \(score)")
@@ -68,7 +73,17 @@ struct ContentView: View {
         .alert(scoreTitle, isPresented: $showingScore) {
             Button("Continue", action: askQuestion)
         } message: {
-            Text("Your score is \(score)")
+            Text(message)
+        }
+        .alert("Overall game score: \(score)/8", isPresented: $isGameOver) {
+            Button("Restart"){
+                round = 1
+                score = 0
+                isGameOver = false
+                askQuestion()
+            }
+        } message: {
+            Text("Click restart for a new game.")
         }
     }
 
@@ -76,12 +91,18 @@ struct ContentView: View {
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
+            message = "Your score is \(score)"
         } else {
             scoreTitle = "Wrong"
-            score -= 1
+            message = "Wrong! That’s the flag of \(countries[number]) and Your score is \(score)"
         }
-
+        if round == 8 {
+            isGameOver = true
+            showingScore = false
+            return
+        }
         showingScore = true
+        round += 1
     }
 
     func askQuestion() {
