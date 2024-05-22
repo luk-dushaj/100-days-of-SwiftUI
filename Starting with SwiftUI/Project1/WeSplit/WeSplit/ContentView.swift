@@ -68,9 +68,10 @@ struct ContentView: View {
                         Locale.current.currency?.identifier ?? "USD" ) )
                 }
                 
-                Section(header : Text("Total amount of check")){
-                    Text(grandTotal, format: .currency (code:
+                Section(header: Text("Total amount of check")){
+                    let text = Text(grandTotal, format: .currency (code:
                                                                 Locale.current.currency?.identifier ?? "USD" ) )
+                    tipPercentage == 0 ? text.foregroundColor(.red) : text.foregroundColor(.primary)
                 }
             }
             .navigationTitle("WeSplit")

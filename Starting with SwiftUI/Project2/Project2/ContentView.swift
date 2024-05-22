@@ -16,6 +16,16 @@ struct ContentView: View {
     @State private var message = ""
     @State private var round = 1
     @State private var isGameOver: Bool = false
+    
+    struct FlagImage: View {
+        let countryName: String
+        
+        var body: some View {
+            Image(countryName)
+                .clipShape(Capsule())
+                .shadow(radius: 5)
+        }
+    }
 
     var body: some View {
         ZStack {
@@ -46,9 +56,7 @@ struct ContentView: View {
                         Button {
                             flagTapped(number)
                         } label: {
-                            Image(countries[number])
-                                .clipShape(.capsule)
-                                .shadow(radius: 5)
+                            FlagImage(countryName: countries[number])
                         }
                     }
                 }
