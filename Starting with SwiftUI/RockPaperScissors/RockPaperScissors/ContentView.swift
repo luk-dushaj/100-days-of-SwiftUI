@@ -5,21 +5,44 @@
 //  Created by user on 5/22/24.
 //
 
-// We only track who wins round and at the end of the game only output users score
-// Eventually throw a guard in somewhere in the code to reset the round if both moves type matches
-/*
- Have 3 .alert modifiers
- 1. Output who won the round
- 2. Output a tie and restarting the round
- 3. Output the end and the overall score with a restart button
- */
-
 import SwiftUI
 
 enum Option: String, CaseIterable {
     case rock = "Rock"
     case paper = "Paper"
     case scissors = "Scissors"
+}
+
+struct ButtonStyle: View {
+    let iconName: String
+    
+    var icons = [
+        "Rock": "🪨",
+        "Paper": "📄",
+        "Scissors": "✂️"
+    ]
+    var body: some View {
+        
+        if let icon = icons[iconName] {
+            Text(icon)
+                .font(.system(size: 100))
+                .frame(maxWidth: 200, maxHeight: 100, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                .padding(.vertical, 10)
+                .background(Color(red: 0.1, green: 0.7, blue: 0.99))
+                .clipShape(.rect(cornerRadius: 50))
+        } else {
+            Text("Default Icon")
+        }
+    }
+}
+
+struct TextStyle: View {
+    let string: String
+    var body: some View {
+        Text(string)
+            .foregroundColor(.secondary)
+            .fontWeight(.heavy)
+    }
 }
 
 struct ContentView: View {
@@ -32,99 +55,127 @@ struct ContentView: View {
     @State private var scoreTitle = ""
     @State private var message = ""
     @State private var showingScore = false
-//    private var winner: String {
-//        whoWins(move: playerMove, compareTo: computerMove) ? "won" : "lost"
-//    }
+    
     private var options = Option.allCases
-        private var icons = [
-            "Rock": "🪨",
-            "Paper": "📄",
-            "Scissors": "✂️"
-        ]
-        
-        @State private var index: Int = Int.random(in: 0..<Option.allCases.count)
-        
-        private var computerMove: Option {
-            options[index]
+    
+    @State private var index: Int = Int.random(in: 0..<Option.allCases.count)
+    
+    private var computerMove: Option {
+        options[index]
+    }
+    
+    var body: some View {
+        ZStack {
+            Color.primary
+            VStack {
+                Spacer()
+                TextStyle(string: "Rock, Paper, Scissors")
+                    .font(.largeTitle.weight(.semibold))
+                
+                Spacer()
+                Spacer()
+                ForEach(options, id: \.self) { option in
+                    Button {
+                        buttonTapped(option)
+                    } label: {
+                        // need if let because option.rawValue can potentially be nil
+                        ButtonStyle(iconName: option.rawValue)
+                    }
+                }
+                
+                Spacer()
+                Spacer()
+                Spacer()
+            }
+            .padding()
+            Spacer()
+            VStack {
+                Spacer()
+                HStack(spacing: 150) {
+                    TextStyle(string: "Round: \(questionNumber)/10")
+                        .padding(.bottom, 35)
+                    TextStyle(string: "Score: \(score)/10")
+                        .padding(.bottom, 35)
+                }
+            }
         }
+        .ignoresSafeArea()
+        
+        .alert(scoreTitle, isPresented: $showingScore){
+            Button("Continue", action: {
+                showingScore = false
+            })
+        } message: {
+            Text(message)
+        }
+        .alert("Whoops! Looks like a draw. Try again.", isPresented: $isTie) {
+            Button("Continue", action: {
+                isTie = false
+            })
+        }
+        .alert("Game Over", isPresented: $endGame) {
+            Button("Restart", action: {
+                endGame = false
+                score = 0
+                questionNumber = 1
+                showingScore = false
+            })
+        } message: {
+            Text("Overall score: \(score)/10")
+        }
+    }
     
     // This func takes in 2 option and returns a boolean to see if it wins
     func whoWins(move: Option, compareTo move2: Option) -> Bool {
         switch move {
         case .rock:
-            move2 != .paper ? true : false
+            return move2 == .scissors
         case .paper:
-            move2 != .scissors ? true : false
+            return move2 == .rock
         case .scissors:
-            move2 != .rock ? true : false
+            return move2 == .paper
         }
     }
     
     // If true .alert will tell the user you both have selected \(playerMove) restart the round
     func checkMoves(_ playerMove: Option) -> Bool {
-        guard playerMove != computerMove else {
+        if playerMove.rawValue == computerMove.rawValue {
+            return true
+        } else {
             return false
         }
-        return true
     }
     
     func buttonTapped(_ playerMove: Option) {
-        if questionNumber == 10 {
-            endGame = true
-        }
         isTie = checkMoves(playerMove)
         if isTie {
             // generate new computer move
             self.index = Int.random(in: 0..<options.count)
+            return
         }
-        questionNumber += 1
+        if questionNumber == 10 {
+            endGame = true
+        } else {
+            questionNumber += 1
+        }
         if whoWins(move: playerMove, compareTo: computerMove) {
             scoreTitle = "Correct"
             score += 1
             message = "Your score is \(score)"
+            showingScore = true
+            self.index = Int.random(in: 0..<options.count)
         } else {
             scoreTitle = "Wrong"
             message = "No \(playerMove.rawValue) does not beat \(computerMove.rawValue)!"
-            guard score != 0 else {
-                return
+            if score != 0 {
+                score -= 1
             }
-            score -= 1
         }
+        showingScore = true
+        self.index = Int.random(in: 0..<options.count)
         
     }
     
-    var body: some View {
-        VStack {
-            ForEach(options, id: \.self) { option in
-                Button {
-                    buttonTapped(option)
-                } label: {
-                    if let iconName = icons[option.rawValue] {
-                        Text(iconName)
-                    } else {
-                        // Handle the case where the value is nil
-                        Text("Default Icon")
-                    }
-                }
-                
-            }
-        }
-        .padding()
-        .alert("Whoops! Looks like a draw. Try again.", isPresented: $isTie) {
-            Button("Continue", action: {
-                isTie = false
-            })
-            .alert("Game is over", isPresented: $endGame){
-                Button("Restart", action: {
-                    endGame = false
-                    score = 0
-                    questionNumber = 1
-                })
-            } message: {
-                Text("Overall score: \(score)/10")
-            }
-        }
-    }
 }
 
 #Preview {

@@ -13,24 +13,26 @@ struct ContentView: View {
     @State private var sleepAmount = 8.0
     @State private var coffeeAmount = 1
 
-    @State private var alertTitle = ""
-    @State private var alertMessage = ""
-    @State private var showingAlert = false
-
+    @State public var message = ""
+    
     static var defaultWakeTime: Date {
         var components = DateComponents()
         components.hour = 7
         components.minute = 0
         return Calendar.current.date(from: components) ?? .now
     }
+    
 
     var body: some View {
         NavigationStack {
             Form {
-                VStack(alignment: .leading, spacing: 0) {
+                // I already know Section version is this Section(header: Text("When do you want to wake up?").font(.headline))
+                // But it looks ugly and Id rather have a Vstack plus Paul said I can choose either or
+                VStack(alignment: .leading, spacing: 0){
+
                     Text("When do you want to wake up?")
                         .font(.headline)
-
+                    
                     DatePicker("Please enter a time", selection: $wakeUp, displayedComponents: .hourAndMinute)
                         .labelsHidden()
                 }
@@ -46,22 +48,36 @@ struct ContentView: View {
                     Text("Daily coffee intake")
                         .font(.headline)
 
-                    Stepper("^[\(coffeeAmount) cup](inflect: true)", value: $coffeeAmount, in: 1...20)
+                    Picker("Coffee Amount", selection: $coffeeAmount) {
+                        ForEach(1...20, id: \.self) { cups in
+                            Text("\(cups) cup\(cups == 1 ? "" : "s")")
+                        }
+                    }
+                    .labelsHidden()
                 }
             }
+            .onAppear {
+                message = calculateBedtime()
+            }
+            // for some weird reason swiftUI is not changing the data in my Text view
+            // So I found this way so it can track changes in each property
+            .onChange(of: wakeUp){
+                message = calculateBedtime()
+            }
+            .onChange(of: sleepAmount){
+                message = calculateBedtime()
+            }
+            .onChange(of: coffeeAmount){
+                message = calculateBedtime()
+            }
+            Spacer()
+            Text(message)
+            Spacer()
             .navigationTitle("BetterRest")
-            .toolbar {
-                Button("Calculate", action: calculateBedtime)
-            }
-            .alert(alertTitle, isPresented: $showingAlert) {
-                Button("OK") { }
-            } message: {
-                Text(alertMessage)
-            }
         }
     }
 
-    func calculateBedtime() {
+    func calculateBedtime() -> String {
         do {
             let config = MLModelConfiguration()
             let model = try SleepCalculator(configuration: config)
@@ -74,14 +90,11 @@ struct ContentView: View {
 
             let sleepTime = wakeUp - prediction.actualSleep
 
-            alertTitle = "Your ideal bedtime is…"
-            alertMessage = sleepTime.formatted(date: .omitted, time: .shortened)
+            message = "Your ideal bedtime is: \(sleepTime.formatted(date: .omitted, time: .shortened))"
         } catch {
-            alertTitle = "Error"
-            alertMessage = "Sorry, there was a problem calculating your bedtime."
+            message = "Error: Sorry, there was a problem calculating your bedtime."
         }
-
-        showingAlert = true
+        return message
     }
 }
 
