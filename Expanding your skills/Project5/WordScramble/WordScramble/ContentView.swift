@@ -11,19 +11,21 @@ struct ContentView: View {
     @State private var usedWords = [String]()
     @State private var rootWord = ""
     @State private var newWord = ""
-
+    
     @State private var errorTitle = ""
     @State private var errorMessage = ""
     @State private var showingError = false
-
+    @State private var score = 0
+    
     var body: some View {
         NavigationStack {
+            Text("Score: \(score)")
             List {
                 Section {
                     TextField("Enter your word", text: $newWord)
                         .textInputAutocapitalization(.never)
                 }
-
+                
                 Section {
                     ForEach(usedWords, id: \.self) { word in
                         HStack {
@@ -31,6 +33,12 @@ struct ContentView: View {
                             Text(word)
                         }
                     }
+                }
+            }
+            .toolbar {
+                Button("Restart") {
+                    score = 0
+                    startGame()
                 }
             }
             .navigationTitle(rootWord)
@@ -41,31 +49,44 @@ struct ContentView: View {
             }
         }
     }
-
+    
     func addNewWord() {
         let answer = newWord.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
-
+        
         guard answer.count > 0 else { return }
-
+        
         guard isOriginal(word: answer) else {
             wordError(title: "Word used already", message: "Be more original!")
             return
         }
-
+        
         guard isPossible(word: answer) else {
             wordError(title: "Word not possible", message: "You can't spell that word from '\(rootWord)'!")
             return
         }
-
+        
         guard isReal(word: answer) else {
             wordError(title: "Word not recognized", message: "You can't just make them up, you know!")
             return
         }
-
+        
+        guard sameWord(word: answer) else {
+            wordError(title: "Word is the same", message: "At least try to come up with something else")
+            return
+        }
+        
+        guard tooEasy(word: answer) else {
+            wordError(title: "Word is way too easy", message: "You sure you can't come up with anything more creative?")
+            return
+        }
+        
         withAnimation {
             usedWords.insert(answer, at: 0)
         }
-
+        
+        // +1 for adding another word
+        score = score + answer.count + 1
+        
         newWord = ""
     }
 
@@ -104,6 +125,20 @@ struct ContentView: View {
         let range = NSRange(location: 0, length: word.utf16.count)
         let misspelledRange = checker.rangeOfMisspelledWord(in: word, range: range, startingAt: 0, wrap: false, language: "en")
         return misspelledRange.location == NSNotFound
+    }
+    
+    func tooEasy(word: String) -> Bool {
+        guard word.count >= 3 else {
+            return false
+        }
+        return true
+    }
+    
+    func sameWord(word: String) -> Bool {
+        guard word != rootWord else {
+            return false
+        }
+        return true
     }
 
     func wordError(title: String, message: String) {
