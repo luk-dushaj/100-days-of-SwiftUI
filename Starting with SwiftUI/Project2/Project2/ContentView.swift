@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  GuessTheFlag
 //
-//  Created by Paul Hudson on 11/10/2023.
+//  Created by user
 //
 
 import SwiftUI
@@ -16,6 +16,7 @@ struct ContentView: View {
     @State private var message = ""
     @State private var round = 1
     @State private var isGameOver: Bool = false
+    @State private var selectedFlag = -1
     
     struct FlagImage: View {
         let countryName: String
@@ -57,6 +58,10 @@ struct ContentView: View {
                             flagTapped(number)
                         } label: {
                             FlagImage(countryName: countries[number])
+                                .rotation3DEffect(.degrees(selectedFlag == number ? 360 : 0), axis: (x: 0, y: 1, z: 0))
+                                .animation(.default, value: selectedFlag)
+                                .opacity(selectedFlag == -1 || selectedFlag == number ? 1.0 : 0.25)
+                                .blur(radius: selectedFlag == -1 || selectedFlag == number ? 0 : 3)
                         }
                     }
                 }
@@ -96,6 +101,7 @@ struct ContentView: View {
     }
 
     func flagTapped(_ number: Int) {
+        selectedFlag = number
         if number == correctAnswer {
             scoreTitle = "Correct"
             score += 1
@@ -116,6 +122,7 @@ struct ContentView: View {
     func askQuestion() {
         countries.shuffle()
         correctAnswer = Int.random(in: 0...2)
+        selectedFlag = -1
     }
 }
 

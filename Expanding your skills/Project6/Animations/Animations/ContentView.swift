@@ -197,6 +197,7 @@ struct ContentView: View {
         .scaleEffect(animationAmount)
         .blur(radius: (animationAmount - 1) * 3)
         .animation(.default, value: animationAmount)
+        .rotation3DEffect(.degrees(60), axis: (x: 0, y: 1, z: 0))
     }
 }
 #Preview {
