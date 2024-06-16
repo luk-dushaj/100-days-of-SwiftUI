@@ -4,14 +4,49 @@
 //
 //  Created by user on 6/15/24.
 //
-
 import SwiftUI
 
-struct ExpenseItem: Identifiable, Codable {
+struct ExpenseItem: Identifiable, Codable, Equatable {
     var id = UUID()
     let name: String
     let type: String
     let amount: Double
+}
+
+struct ExpenseRow: View {
+    let item: ExpenseItem
+    
+    var body: some View {
+        HStack {
+            VStack(alignment: .leading) {
+                StyleView(item: item)
+            }
+            Spacer()
+            Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+        }
+    }
+}
+
+struct StyleView: View {
+    let item: ExpenseItem
+    
+    var textStyle: Font {
+        if item.amount >= 100 {
+            return .largeTitle
+        } else if item.amount >= 10 {
+            return .headline
+        } else {
+            return .body
+        }
+    }
+    
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(item.name)
+                .font(textStyle)
+            Text(item.type)
+        }
+    }
 }
 
 @Observable
@@ -23,7 +58,7 @@ class Expenses {
             }
         }
     }
-
+    
     init() {
         if let savedItems = UserDefaults.standard.data(forKey: "Items") {
             if let decodedItems = try? JSONDecoder().decode([ExpenseItem].self, from: savedItems) {
@@ -31,39 +66,38 @@ class Expenses {
                 return
             }
         }
-
+        
         items = []
     }
 }
 
 struct ContentView: View {
     @State private var expenses = Expenses()
-
     @State private var showingAddExpense = false
-
+    
     var body: some View {
-        NavigationStack {
+        NavigationView {
             List {
-                ForEach(expenses.items) { item in
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text(item.name)
-                                .font(.headline)
-
-                            Text(item.type)
-                        }
-
-                        Spacer()
-
-                        Text(item.amount, format: .currency(code: "USD"))
+                Section(header: Text("Personal")) {
+                    ForEach(expenses.items.filter { $0.type == "Personal" }) { item in
+                        ExpenseRow(item: item)
                     }
+                    .onDelete(perform: deletePersonalExpense)
                 }
-                .onDelete(perform: removeItems)
+                
+                Section(header: Text("Business")) {
+                    ForEach(expenses.items.filter { $0.type == "Business" }) { item in
+                        ExpenseRow(item: item)
+                    }
+                    .onDelete(perform: deleteBusinessExpense)
+                }
             }
             .navigationTitle("iExpense")
             .toolbar {
-                Button("Add Expense", systemImage: "plus") {
-                    showingAddExpense = true
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Add Expense") {
+                        showingAddExpense = true
+                    }
                 }
             }
             .sheet(isPresented: $showingAddExpense) {
@@ -71,12 +105,21 @@ struct ContentView: View {
             }
         }
     }
-
+    
     func removeItems(at offsets: IndexSet) {
         expenses.items.remove(atOffsets: offsets)
+    }
+    
+    func deletePersonalExpense(at offsets: IndexSet) {
+        expenses.items.removeAll(where: { offsets.contains(expenses.items.firstIndex(of: $0)!) })
+    }
+    
+    func deleteBusinessExpense(at offsets: IndexSet) {
+        expenses.items.removeAll(where: { offsets.contains(expenses.items.firstIndex(of: $0)!) })
     }
 }
 
 #Preview {
     ContentView()
 }
+
