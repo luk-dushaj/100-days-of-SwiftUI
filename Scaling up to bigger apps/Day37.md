@@ -1,0 +1,1 @@
+Today I just applied what I learned from Day 36, along with some other stuff like UUID created the iExpense app.
