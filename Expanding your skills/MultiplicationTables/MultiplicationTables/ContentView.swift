@@ -18,28 +18,13 @@ struct ContentView: View {
     @State private var showingScore = false
     @State private var answer = 0
     @State private var scoreTitle = ""
+    @State private var gameActive = false
     // type has to be string for answer because Textfield enforces it
     @State private var userAnswer = 0
     let questionOptions = [5, 10, 20]
     
     var body: some View {
         NavigationStack {
-            
-            
-            Section("What table do you want to practice?"){
-                Stepper("\(chosenNumber) tables", value: $chosenNumber, in: 2...12, step: 1)
-            }
-            
-            Section("How much questions do you want?"){
-                Picker("Questions", selection: $questions){
-                    ForEach(questionOptions.indices, id: \.self) { questionIndex in
-                        Text("\(questionOptions[questionIndex])")
-                    }
-                }
-                
-                .pickerStyle(.segmented)
-                
-                
                 TextField("Answer", value: $userAnswer, formatter: NumberFormatter())
                     .alert(scoreTitle, isPresented: $showingScore){
                         Button("Continue", action: {
