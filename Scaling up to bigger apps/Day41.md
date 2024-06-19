@@ -1,0 +1,1 @@
+Today I finished up the Moonshot project and learned a lot more on laying out the UI.

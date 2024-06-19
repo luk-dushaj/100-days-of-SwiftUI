@@ -4,7 +4,6 @@
 //
 //  Created by user on 6/17/24.
 //
-
 import SwiftUI
 
 struct ContentView: View {
@@ -21,6 +20,7 @@ struct ContentView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(missions) { mission in
                         NavigationLink {
+                            MissionView(mission: mission, astronauts: astronauts)
                         } label: {
                             VStack {
                                 Image(mission.image)

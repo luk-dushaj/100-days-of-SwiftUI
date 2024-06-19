@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE40322C2C232579008B9A71 /* MissionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40322B2C232579008B9A71 /* MissionView.swift */; };
+		CE40322E2C232A09008B9A71 /* AstronautView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE40322D2C232A09008B9A71 /* AstronautView.swift */; };
 		CEA8BE622C20A94000FF8EAC /* MoonshotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BE612C20A94000FF8EAC /* MoonshotApp.swift */; };
 		CEA8BE642C20A94000FF8EAC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA8BE632C20A94000FF8EAC /* ContentView.swift */; };
 		CEA8BE662C20A94100FF8EAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEA8BE652C20A94100FF8EAC /* Assets.xcassets */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE40322B2C232579008B9A71 /* MissionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MissionView.swift; sourceTree = "<group>"; };
+		CE40322D2C232A09008B9A71 /* AstronautView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AstronautView.swift; sourceTree = "<group>"; };
 		CEA8BE5E2C20A94000FF8EAC /* Moonshot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonshot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEA8BE612C20A94000FF8EAC /* MoonshotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonshotApp.swift; sourceTree = "<group>"; };
 		CEA8BE632C20A94000FF8EAC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -72,6 +76,8 @@
 				CEEBDD432C228FC5003F80EB /* Bundle-Decodable.swift */,
 				CEEBDD452C229593003F80EB /* Mission.swift */,
 				CEEBDD472C229B72003F80EB /* Color-Theme.swift */,
+				CE40322B2C232579008B9A71 /* MissionView.swift */,
+				CE40322D2C232A09008B9A71 /* AstronautView.swift */,
 				CEA8BE672C20A94100FF8EAC /* Preview Content */,
 			);
 			path = Moonshot;
@@ -157,7 +163,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE40322C2C232579008B9A71 /* MissionView.swift in Sources */,
 				CEEBDD422C228F83003F80EB /* Astronaut.swift in Sources */,
+				CE40322E2C232A09008B9A71 /* AstronautView.swift in Sources */,
 				CEEBDD482C229B72003F80EB /* Color-Theme.swift in Sources */,
 				CEA8BE642C20A94000FF8EAC /* ContentView.swift in Sources */,
 				CEA8BE622C20A94000FF8EAC /* MoonshotApp.swift in Sources */,
