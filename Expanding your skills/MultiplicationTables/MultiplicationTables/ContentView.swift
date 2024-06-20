@@ -55,6 +55,14 @@ struct ContentView: View {
                     showingScore = false
                     // Optionally reset userAnswer and increment questionNumber here
                 })
+                .alert("The game has ended. Final score: \(score)/\(questions)",isPresented: $endGame) {
+                    Button("Continue", action: {
+                        endGame = false
+                        nextQuestion()
+                        questionNumber = 0
+                        // Optionally reset userAnswer and increment questionNumber here
+                    })
+                }
             }
             
             
@@ -91,11 +99,11 @@ struct ContentView: View {
     }
     
     func nextQuestion() {
-            questionNumber += 1
-            number = Int.random(in: 2..<12)
-            userAnswer = 0
-            showingScore = false
-        }
+        questionNumber += 1
+        number = Int.random(in: 2..<12)
+        userAnswer = 0
+        showingScore = false
+    }
 }
 
 
