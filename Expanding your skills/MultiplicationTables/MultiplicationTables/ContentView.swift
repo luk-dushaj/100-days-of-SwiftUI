@@ -18,73 +18,84 @@ struct ContentView: View {
     @State private var showingScore = false
     @State private var answer: Int?
     @State private var scoreTitle = ""
-    @State private var isGameActive = false
+    @State private var settingsView = true
     @State private var focused = false
     // type has to be string for answer because Textfield enforces it
     @State private var userAnswer = 0
     let questionOptions = [5, 10, 20]
     
     var body: some View {
-        NavigationStack {
-            
-            Section("What table do you want to practice?"){
-                Stepper("\(chosenNumber) tables", value: $chosenNumber, in: 2...12, step: 1)
-            }
-            
-            Section("How much questions do you want?"){
-                Picker("Questions", selection: $questions){
-                    ForEach(questionOptions, id: \.self) { questionIndex in
-                        Text("\(questionIndex)")
+        
+        Text("Times Tables")
+            .font(.largeTitle)
+            .fontWeight(.bold)
+            .padding()
+        Spacer()
+        
+            .sheet(isPresented: $settingsView) {
+                
+                
+                Section("What table do you want to practice?"){
+                    Stepper("\(chosenNumber) tables", value: $chosenNumber, in: 2...12, step: 1)
+                }
+                
+                Section("How much questions do you want?"){
+                    Picker("Questions", selection: $questions){
+                        ForEach(questionOptions, id: \.self) { questionIndex in
+                            Text("\(questionIndex)")
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    Button("Done"){
+                        settingsView.toggle()
                     }
                 }
-                
-                .pickerStyle(.segmented)
             }
+        
+        
+        
+        VStack {
+            TextField("Answer", value: $userAnswer, formatter: NumberFormatter())
             
-            
-            VStack {
-                TextField("Answer", value: $userAnswer, formatter: NumberFormatter())
-                
-                Button("Submit") {
-                    controlFlow(userAnswer)
-                    showingScore = true
-                }
+            Button("Submit") {
+                controlFlow(userAnswer)
+                showingScore = true
             }
-            .alert(scoreTitle, isPresented: $showingScore) {
-                Button("Continue", action: {
-                    showingScore = false
-                    // Optionally reset userAnswer and increment questionNumber here
-                })
-                .alert("The game has ended. Final score: \(score)/\(questions)",isPresented: $endGame) {
-                    Button("Continue", action: {
-                        endGame = false
-                        nextQuestion()
-                        questionNumber = 0
-                        // Optionally reset userAnswer and increment questionNumber here
-                    })
-                }
-            }
-            
-            
-            
-            
-            Text("What is \(chosenNumber) * \(number)?")
-            Text("Question: \(questionNumber)/\(questions)")
-            Text("Score: \(score)/\(questions)")
-            
         }
+        .alert(scoreTitle, isPresented: $showingScore) {
+            Button("Continue", action: {
+                showingScore = false
+                // Optionally reset userAnswer and increment questionNumber here
+            })
+        }
+        .alert("The game has ended. Final score: \(score)/\(questions)",isPresented: $endGame) {
+            Button("Restart", action: {
+                endGame.toggle()
+                restartGame()
+            })
+            Button("Play Again", action: {
+                endGame.toggle()
+                settingsView.toggle()
+                restartGame()
+            })
+        }
+        
+        
+        
+        
+        Text("What is \(chosenNumber) * \(number)?")
+        Text("Question: \(questionNumber)/\(questions)")
+        Text("Score: \(score)/\(questions)")
+        Spacer()
     }
+    
+    
     //            .navigationTitle("Times Tables")
     
     func multiply(chosenNumber: Int, number: Int) -> Int { chosenNumber * number }
     
     func controlFlow(_ userAnswer: Int){
-        print("running")
-        guard questionNumber < questions else {
-            print("hell no")
-            endGame = true
-            return
-        }
+        
         answer = multiply(chosenNumber: chosenNumber, number: number)
         
         if userAnswer == answer {
@@ -94,15 +105,27 @@ struct ContentView: View {
             scoreTitle = "Bad"
         }
         
+        if questionNumber == 5 {
+            endGame.toggle()
+            return
+        }
+        
+        questionNumber += 1
+        
         nextQuestion()
         
     }
     
     func nextQuestion() {
-        questionNumber += 1
         number = Int.random(in: 2..<12)
         userAnswer = 0
         showingScore = false
+    }
+    
+    func restartGame() {
+        nextQuestion()
+        questionNumber = 0
+        score = 0
     }
 }
 
