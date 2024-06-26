@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE01D3BC2C21D2EF002D5202 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE01D3BB2C21D2EF002D5202 /* Settings.swift */; };
+		CE05935B2C28A48000076436 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05935A2C28A48000076436 /* Settings.swift */; };
 		CE4E8B672C0DE56600BD725A /* MultiplicationTablesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E8B662C0DE56600BD725A /* MultiplicationTablesApp.swift */; };
 		CE4E8B692C0DE56600BD725A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E8B682C0DE56600BD725A /* ContentView.swift */; };
 		CE4E8B6B2C0DE56800BD725A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4E8B6A2C0DE56800BD725A /* Assets.xcassets */; };
@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE01D3BB2C21D2EF002D5202 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		CE05935A2C28A48000076436 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		CE4E8B632C0DE56600BD725A /* MultiplicationTables.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplicationTables.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4E8B662C0DE56600BD725A /* MultiplicationTablesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationTablesApp.swift; sourceTree = "<group>"; };
 		CE4E8B682C0DE56600BD725A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 			children = (
 				CE4E8B662C0DE56600BD725A /* MultiplicationTablesApp.swift */,
 				CE4E8B682C0DE56600BD725A /* ContentView.swift */,
-				CE01D3BB2C21D2EF002D5202 /* Settings.swift */,
+				CE05935A2C28A48000076436 /* Settings.swift */,
 				CE4E8B6A2C0DE56800BD725A /* Assets.xcassets */,
 				CE4E8B6C2C0DE56800BD725A /* Preview Content */,
 			);
@@ -140,7 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE01D3BC2C21D2EF002D5202 /* Settings.swift in Sources */,
+				CE05935B2C28A48000076436 /* Settings.swift in Sources */,
 				CE4E8B692C0DE56600BD725A /* ContentView.swift in Sources */,
 				CE4E8B672C0DE56600BD725A /* MultiplicationTablesApp.swift in Sources */,
 			);
