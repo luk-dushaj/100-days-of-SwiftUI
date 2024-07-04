@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CE05935B2C28A48000076436 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE05935A2C28A48000076436 /* Settings.swift */; };
-		CE4E8B672C0DE56600BD725A /* MultiplicationTablesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E8B662C0DE56600BD725A /* MultiplicationTablesApp.swift */; };
-		CE4E8B692C0DE56600BD725A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4E8B682C0DE56600BD725A /* ContentView.swift */; };
-		CE4E8B6B2C0DE56800BD725A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4E8B6A2C0DE56800BD725A /* Assets.xcassets */; };
-		CE4E8B6E2C0DE56800BD725A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE4E8B6D2C0DE56800BD725A /* Preview Assets.xcassets */; };
+		CE2777DE2C2D16540055CA8B /* MultiplicationTablesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2777DD2C2D16540055CA8B /* MultiplicationTablesApp.swift */; };
+		CE2777E02C2D16540055CA8B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2777DF2C2D16540055CA8B /* ContentView.swift */; };
+		CE2777E22C2D16550055CA8B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2777E12C2D16550055CA8B /* Assets.xcassets */; };
+		CE2777E52C2D16550055CA8B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2777E42C2D16550055CA8B /* Preview Assets.xcassets */; };
+		CE2777EC2C2D16AC0055CA8B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2777EB2C2D16AC0055CA8B /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CE05935A2C28A48000076436 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		CE4E8B632C0DE56600BD725A /* MultiplicationTables.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplicationTables.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE4E8B662C0DE56600BD725A /* MultiplicationTablesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationTablesApp.swift; sourceTree = "<group>"; };
-		CE4E8B682C0DE56600BD725A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		CE4E8B6A2C0DE56800BD725A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		CE4E8B6D2C0DE56800BD725A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CE2777DA2C2D16540055CA8B /* MultiplicationTables.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultiplicationTables.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE2777DD2C2D16540055CA8B /* MultiplicationTablesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplicationTablesApp.swift; sourceTree = "<group>"; };
+		CE2777DF2C2D16540055CA8B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		CE2777E12C2D16550055CA8B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE2777E42C2D16550055CA8B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CE2777EB2C2D16AC0055CA8B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CE4E8B602C0DE56600BD725A /* Frameworks */ = {
+		CE2777D72C2D16540055CA8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -34,38 +34,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CE4E8B5A2C0DE56600BD725A = {
+		CE2777D12C2D16540055CA8B = {
 			isa = PBXGroup;
 			children = (
-				CE4E8B652C0DE56600BD725A /* MultiplicationTables */,
-				CE4E8B642C0DE56600BD725A /* Products */,
+				CE2777DC2C2D16540055CA8B /* MultiplicationTables */,
+				CE2777DB2C2D16540055CA8B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		CE4E8B642C0DE56600BD725A /* Products */ = {
+		CE2777DB2C2D16540055CA8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE4E8B632C0DE56600BD725A /* MultiplicationTables.app */,
+				CE2777DA2C2D16540055CA8B /* MultiplicationTables.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CE4E8B652C0DE56600BD725A /* MultiplicationTables */ = {
+		CE2777DC2C2D16540055CA8B /* MultiplicationTables */ = {
 			isa = PBXGroup;
 			children = (
-				CE4E8B662C0DE56600BD725A /* MultiplicationTablesApp.swift */,
-				CE4E8B682C0DE56600BD725A /* ContentView.swift */,
-				CE05935A2C28A48000076436 /* Settings.swift */,
-				CE4E8B6A2C0DE56800BD725A /* Assets.xcassets */,
-				CE4E8B6C2C0DE56800BD725A /* Preview Content */,
+				CE2777EB2C2D16AC0055CA8B /* Settings.swift */,
+				CE2777DD2C2D16540055CA8B /* MultiplicationTablesApp.swift */,
+				CE2777DF2C2D16540055CA8B /* ContentView.swift */,
+				CE2777E12C2D16550055CA8B /* Assets.xcassets */,
+				CE2777E32C2D16550055CA8B /* Preview Content */,
 			);
 			path = MultiplicationTables;
 			sourceTree = "<group>";
 		};
-		CE4E8B6C2C0DE56800BD725A /* Preview Content */ = {
+		CE2777E32C2D16550055CA8B /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				CE4E8B6D2C0DE56800BD725A /* Preview Assets.xcassets */,
+				CE2777E42C2D16550055CA8B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -73,13 +73,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE4E8B622C0DE56600BD725A /* MultiplicationTables */ = {
+		CE2777D92C2D16540055CA8B /* MultiplicationTables */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE4E8B712C0DE56800BD725A /* Build configuration list for PBXNativeTarget "MultiplicationTables" */;
+			buildConfigurationList = CE2777E82C2D16550055CA8B /* Build configuration list for PBXNativeTarget "MultiplicationTables" */;
 			buildPhases = (
-				CE4E8B5F2C0DE56600BD725A /* Sources */,
-				CE4E8B602C0DE56600BD725A /* Frameworks */,
-				CE4E8B612C0DE56600BD725A /* Resources */,
+				CE2777D62C2D16540055CA8B /* Sources */,
+				CE2777D72C2D16540055CA8B /* Frameworks */,
+				CE2777D82C2D16540055CA8B /* Resources */,
 			);
 			buildRules = (
 			);
@@ -87,25 +87,25 @@
 			);
 			name = MultiplicationTables;
 			productName = MultiplicationTables;
-			productReference = CE4E8B632C0DE56600BD725A /* MultiplicationTables.app */;
+			productReference = CE2777DA2C2D16540055CA8B /* MultiplicationTables.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		CE4E8B5B2C0DE56600BD725A /* Project object */ = {
+		CE2777D22C2D16540055CA8B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1540;
 				LastUpgradeCheck = 1540;
 				TargetAttributes = {
-					CE4E8B622C0DE56600BD725A = {
+					CE2777D92C2D16540055CA8B = {
 						CreatedOnToolsVersion = 15.4;
 					};
 				};
 			};
-			buildConfigurationList = CE4E8B5E2C0DE56600BD725A /* Build configuration list for PBXProject "MultiplicationTables" */;
+			buildConfigurationList = CE2777D52C2D16540055CA8B /* Build configuration list for PBXProject "MultiplicationTables" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -113,43 +113,43 @@
 				en,
 				Base,
 			);
-			mainGroup = CE4E8B5A2C0DE56600BD725A;
-			productRefGroup = CE4E8B642C0DE56600BD725A /* Products */;
+			mainGroup = CE2777D12C2D16540055CA8B;
+			productRefGroup = CE2777DB2C2D16540055CA8B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE4E8B622C0DE56600BD725A /* MultiplicationTables */,
+				CE2777D92C2D16540055CA8B /* MultiplicationTables */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CE4E8B612C0DE56600BD725A /* Resources */ = {
+		CE2777D82C2D16540055CA8B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE4E8B6E2C0DE56800BD725A /* Preview Assets.xcassets in Resources */,
-				CE4E8B6B2C0DE56800BD725A /* Assets.xcassets in Resources */,
+				CE2777E52C2D16550055CA8B /* Preview Assets.xcassets in Resources */,
+				CE2777E22C2D16550055CA8B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CE4E8B5F2C0DE56600BD725A /* Sources */ = {
+		CE2777D62C2D16540055CA8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE05935B2C28A48000076436 /* Settings.swift in Sources */,
-				CE4E8B692C0DE56600BD725A /* ContentView.swift in Sources */,
-				CE4E8B672C0DE56600BD725A /* MultiplicationTablesApp.swift in Sources */,
+				CE2777EC2C2D16AC0055CA8B /* Settings.swift in Sources */,
+				CE2777E02C2D16540055CA8B /* ContentView.swift in Sources */,
+				CE2777DE2C2D16540055CA8B /* MultiplicationTablesApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		CE4E8B6F2C0DE56800BD725A /* Debug */ = {
+		CE2777E62C2D16550055CA8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -212,7 +212,7 @@
 			};
 			name = Debug;
 		};
-		CE4E8B702C0DE56800BD725A /* Release */ = {
+		CE2777E72C2D16550055CA8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -268,7 +268,7 @@
 			};
 			name = Release;
 		};
-		CE4E8B722C0DE56800BD725A /* Debug */ = {
+		CE2777E92C2D16550055CA8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -296,7 +296,7 @@
 			};
 			name = Debug;
 		};
-		CE4E8B732C0DE56800BD725A /* Release */ = {
+		CE2777EA2C2D16550055CA8B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -327,25 +327,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE4E8B5E2C0DE56600BD725A /* Build configuration list for PBXProject "MultiplicationTables" */ = {
+		CE2777D52C2D16540055CA8B /* Build configuration list for PBXProject "MultiplicationTables" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE4E8B6F2C0DE56800BD725A /* Debug */,
-				CE4E8B702C0DE56800BD725A /* Release */,
+				CE2777E62C2D16550055CA8B /* Debug */,
+				CE2777E72C2D16550055CA8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE4E8B712C0DE56800BD725A /* Build configuration list for PBXNativeTarget "MultiplicationTables" */ = {
+		CE2777E82C2D16550055CA8B /* Build configuration list for PBXNativeTarget "MultiplicationTables" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE4E8B722C0DE56800BD725A /* Debug */,
-				CE4E8B732C0DE56800BD725A /* Release */,
+				CE2777E92C2D16550055CA8B /* Debug */,
+				CE2777EA2C2D16550055CA8B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = CE4E8B5B2C0DE56600BD725A /* Project object */;
+	rootObject = CE2777D22C2D16540055CA8B /* Project object */;
 }

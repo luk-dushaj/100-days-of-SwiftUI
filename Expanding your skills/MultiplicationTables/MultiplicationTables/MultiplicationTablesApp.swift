@@ -2,7 +2,7 @@
 //  MultiplicationTablesApp.swift
 //  MultiplicationTables
 //
-//  Created by user on 6/3/24.
+//  Created by user on 6/26/24.
 //
 
 import SwiftUI
