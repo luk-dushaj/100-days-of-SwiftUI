@@ -4,12 +4,12 @@
 //
 //  Created by user on 7/16/24.
 //
-
 import SwiftUI
 
 struct CheckoutView: View {
     var order: Order
 
+    @State private var fail = false
     @State private var confirmationMessage = ""
     @State private var showingConfirmation = false
 
@@ -44,6 +44,11 @@ struct CheckoutView: View {
         } message: {
             Text(confirmationMessage)
         }
+        .alert("Request failed, please check internet connection.", isPresented: $fail) {
+            Button("OK") {
+                fail.toggle()
+            }
+        }
     }
 
     func placeOrder() async {
@@ -52,6 +57,8 @@ struct CheckoutView: View {
             return
         }
 
+        UserDefaults.standard.set(encoded, forKey: "data")
+
         let url = URL(string: "https://reqres.in/api/cupcakes")!
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -59,16 +66,12 @@ struct CheckoutView: View {
 
         do {
             let (data, _) = try await URLSession.shared.upload(for: request, from: encoded)
-
             let decodedOrder = try JSONDecoder().decode(Order.self, from: data)
             confirmationMessage = "Your order for \(decodedOrder.quantity)x \(Order.types[decodedOrder.type].lowercased()) cupcakes is on its way!"
             showingConfirmation = true
         } catch {
+            fail.toggle()
             print("Check out failed: \(error.localizedDescription)")
         }
     }
-}
-
-#Preview {
-    CheckoutView(order: Order())
 }
