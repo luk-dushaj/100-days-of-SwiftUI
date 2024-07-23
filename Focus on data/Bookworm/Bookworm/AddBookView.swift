@@ -7,6 +7,15 @@
 
 import SwiftUI
 
+extension String {
+    func onlyContainsWhitespaces() -> Bool {
+        if self.contains(/[a-zA-Z0-9-]/) {
+            return false
+        }
+        return true
+    }
+}
+
 struct AddBookView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
@@ -16,6 +25,8 @@ struct AddBookView: View {
     @State private var rating = 3
     @State private var genre = "Fantasy"
     @State private var review = ""
+    @State private var bookPrompt = "Name of book"
+    @State private var authorPrompt = "Author's name text"
     
     let genres = ["Fantasy" , "Horror", "Kids", "Mystery", "Poetry", "Romance", "Thriller"]
     
@@ -23,8 +34,8 @@ struct AddBookView: View {
         NavigationStack {
             Form {
                 Section {
-                    TextField("Name of book", text: $title)
-                    TextField("Author's name text", text: $author)
+                    TextField(bookPrompt, text: $title)
+                    TextField(authorPrompt, text: $author)
                     
                     Picker("Genre", selection: $genre) {
                         ForEach(genres, id: \.self) {
@@ -38,15 +49,30 @@ struct AddBookView: View {
                 }
                 Section {
                     Button("Save") {
-                        let newBook = Book(title: title, author: author, genre: genre,
-                                           review: review, rating: rating)
-                        modelContext.insert(newBook)
-                        dismiss()
+                        let isValid = validateForm()
+                        if isValid {
+                            let newBook = Book(title: title, author: author, genre: genre,
+                                               review: review, rating: rating)
+                            modelContext.insert(newBook)
+                            dismiss()
+                        }
                     }
                 }
             }
             .navigationTitle("Add Book")
         }
+    }
+    
+    func validateForm() -> Bool {
+        // Genres already have a forced default by fantasy, so I dont have to validate that property
+        if title.isEmpty || title.onlyContainsWhitespaces() {
+            bookPrompt = "Please enter a name of a actual book."
+            return false
+        } else if author.isEmpty || author.onlyContainsWhitespaces() {
+            authorPrompt = "Please list a actual realistic author name."
+            return false
+        }
+        return true
     }
 }
 
