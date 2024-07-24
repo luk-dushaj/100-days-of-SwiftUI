@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE7A7EDD2C516D5600A94508 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A7EDC2C516D5600A94508 /* User.swift */; };
+		CE7A7EDF2C516DC800A94508 /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A7EDE2C516DC800A94508 /* UsersView.swift */; };
+		CE7A7EE12C51762C00A94508 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7A7EE02C51762C00A94508 /* Job.swift */; };
 		CEAAABCF2C4FF97000787806 /* SwiftDataProjectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAAABCE2C4FF97000787806 /* SwiftDataProjectApp.swift */; };
 		CEAAABD12C4FF97000787806 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAAABD02C4FF97000787806 /* ContentView.swift */; };
 		CEAAABD32C4FF97100787806 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEAAABD22C4FF97100787806 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE7A7EDC2C516D5600A94508 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CE7A7EDE2C516DC800A94508 /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		CE7A7EE02C51762C00A94508 /* Job.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
 		CEAAABCB2C4FF97000787806 /* SwiftDataProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftDataProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEAAABCE2C4FF97000787806 /* SwiftDataProjectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataProjectApp.swift; sourceTree = "<group>"; };
 		CEAAABD02C4FF97000787806 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +59,9 @@
 			children = (
 				CEAAABCE2C4FF97000787806 /* SwiftDataProjectApp.swift */,
 				CEAAABD02C4FF97000787806 /* ContentView.swift */,
+				CE7A7EE02C51762C00A94508 /* Job.swift */,
+				CE7A7EDC2C516D5600A94508 /* User.swift */,
+				CE7A7EDE2C516DC800A94508 /* UsersView.swift */,
 				CEAAABD22C4FF97100787806 /* Assets.xcassets */,
 				CEAAABD42C4FF97100787806 /* Preview Content */,
 			);
@@ -139,6 +148,9 @@
 			files = (
 				CEAAABD12C4FF97000787806 /* ContentView.swift in Sources */,
 				CEAAABCF2C4FF97000787806 /* SwiftDataProjectApp.swift in Sources */,
+				CE7A7EDD2C516D5600A94508 /* User.swift in Sources */,
+				CE7A7EDF2C516DC800A94508 /* UsersView.swift in Sources */,
+				CE7A7EE12C51762C00A94508 /* Job.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,9 +281,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftDataProject/Preview Content\"";
+				DEVELOPMENT_TEAM = KPQT3H5S66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -286,6 +300,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.dushaj.luk.SwiftDataProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -297,9 +312,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SwiftDataProject/Preview Content\"";
+				DEVELOPMENT_TEAM = KPQT3H5S66;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -314,6 +331,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = me.dushaj.luk.SwiftDataProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
