@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct Detail: View {
-    @Binding var habit: Habit
-    @Binding var saveTimesCompleted: Bool
+    @Bindable var habit: Habit
+    @Binding var isChanged: Bool
     
     var body: some View {
         Group {
@@ -27,7 +27,7 @@ struct Detail: View {
                         .font(.title3)
                     Button {
                         habit.timesCompleted += 1
-                        saveTimesCompleted = true
+                        isChanged = true
                     } label: {
                         Label("", systemImage: "plus")
                     }
@@ -37,5 +37,5 @@ struct Detail: View {
     }
 }
 #Preview {
-    Detail(habit: .constant(Habit()), saveTimesCompleted: .constant(false))
+    Detail(habit: Habit(), isChanged: .constant(false))
 }

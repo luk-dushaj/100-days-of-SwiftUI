@@ -1,14 +1,14 @@
 //
-//  HabitTrackerApp.swift
-//  HabitTracker
+//  FriendsListApp.swift
+//  FriendsList
 //
-//  Created by user on 7/4/24.
+//  Created by user on 7/29/24.
 //
 
 import SwiftUI
 
 @main
-struct HabitTrackerApp: App {
+struct FriendsListApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

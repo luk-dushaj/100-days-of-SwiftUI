@@ -8,10 +8,8 @@ import SwiftUI
 
 extension String {
     func onlyContainsWhitespaces() -> Bool {
-        if self.contains(/[a-zA-Z0-9-]/) {
-            return false
-        }
-        return true
+        let trimmedString = self.trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmedString.isEmpty
     }
 }
 

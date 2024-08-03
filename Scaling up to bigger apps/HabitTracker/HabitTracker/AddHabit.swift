@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddHabit: View {
-    @Binding var habit: Habit
+    @Bindable var habit: Habit
     @Binding var isCreated: Bool
     @Environment(\.dismiss) var dismiss
     @State private var error = false
@@ -53,5 +53,5 @@ struct AddHabit: View {
 }
 
 #Preview {
-    AddHabit(habit: .constant(Habit()), isCreated: .constant(false))
+    AddHabit(habit: Habit(), isCreated: .constant(false))
 }
