@@ -96,8 +96,8 @@ struct ListView: View {
 
 struct ContentView: View {
     @State private var showList = false
-    let astronauts: [String: Astronaut] = Bundle.main.decode("astronauts.json")
-    let missions: [Mission] = Bundle.main.decode("missions.json")
+    let astronauts: [String: Astronaut] = FileManager.default.decode("astronauts.json")
+    let missions: [Mission] = FileManager.default.decode("missions.json")
     
     var body: some View {
         NavigationStack {
