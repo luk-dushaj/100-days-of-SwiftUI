@@ -13,6 +13,7 @@
 		CE2F569B2C6A60D700FBEB0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE2F569A2C6A60D700FBEB0E /* Preview Assets.xcassets */; };
 		CE2F56A42C6DA85900FBEB0E /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F56A32C6DA85900FBEB0E /* Location.swift */; };
 		CE2F56A62C6DACF400FBEB0E /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F56A52C6DACF400FBEB0E /* EditView.swift */; };
+		CE2F56A82C6E34D700FBEB0E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F56A72C6E34D700FBEB0E /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		CE2F569A2C6A60D700FBEB0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CE2F56A32C6DA85900FBEB0E /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		CE2F56A52C6DACF400FBEB0E /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
+		CE2F56A72C6E34D700FBEB0E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		CE2F56922C6A60D500FBEB0E /* BucketList */ = {
 			isa = PBXGroup;
 			children = (
+				CE2F56A72C6E34D700FBEB0E /* Result.swift */,
 				CE2F56932C6A60D500FBEB0E /* BucketListApp.swift */,
 				CE2F56952C6A60D500FBEB0E /* ContentView.swift */,
 				CE2F56A52C6DACF400FBEB0E /* EditView.swift */,
@@ -144,6 +147,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE2F56962C6A60D500FBEB0E /* ContentView.swift in Sources */,
+				CE2F56A82C6E34D700FBEB0E /* Result.swift in Sources */,
 				CE2F56A42C6DA85900FBEB0E /* Location.swift in Sources */,
 				CE2F56A62C6DACF400FBEB0E /* EditView.swift in Sources */,
 				CE2F56942C6A60D500FBEB0E /* BucketListApp.swift in Sources */,
