@@ -15,6 +15,7 @@
 		CE2F56A62C6DACF400FBEB0E /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F56A52C6DACF400FBEB0E /* EditView.swift */; };
 		CE2F56A82C6E34D700FBEB0E /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F56A72C6E34D700FBEB0E /* Result.swift */; };
 		CE2F56AA2C6FBAE100FBEB0E /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2F56A92C6FBAE100FBEB0E /* ContentView-ViewModel.swift */; };
+		CE6D945B2C71878E0065BCB9 /* EditView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6D945A2C71878E0065BCB9 /* EditView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		CE2F56A52C6DACF400FBEB0E /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 		CE2F56A72C6E34D700FBEB0E /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		CE2F56A92C6FBAE100FBEB0E /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		CE6D945A2C71878E0065BCB9 /* EditView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,7 @@
 		CE2F56872C6A60D500FBEB0E = {
 			isa = PBXGroup;
 			children = (
+				CE6D945A2C71878E0065BCB9 /* EditView-ViewModel.swift */,
 				CE2F56922C6A60D500FBEB0E /* BucketList */,
 				CE2F56912C6A60D500FBEB0E /* Products */,
 			);
@@ -152,6 +155,7 @@
 				CE2F56962C6A60D500FBEB0E /* ContentView.swift in Sources */,
 				CE2F56AA2C6FBAE100FBEB0E /* ContentView-ViewModel.swift in Sources */,
 				CE2F56A82C6E34D700FBEB0E /* Result.swift in Sources */,
+				CE6D945B2C71878E0065BCB9 /* EditView-ViewModel.swift in Sources */,
 				CE2F56A42C6DA85900FBEB0E /* Location.swift in Sources */,
 				CE2F56A62C6DACF400FBEB0E /* EditView.swift in Sources */,
 				CE2F56942C6A60D500FBEB0E /* BucketListApp.swift in Sources */,

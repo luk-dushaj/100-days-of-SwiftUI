@@ -8,6 +8,8 @@
 import CoreLocation
 import Foundation
 import LocalAuthentication
+import MapKit
+import SwiftUI
 
 extension ContentView {
     @Observable
@@ -17,6 +19,9 @@ extension ContentView {
         private(set) var locations: [Location]
         var selectedPlace: Location?
         var isUnlocked = false
+        var mapMode: MapStyle = .standard
+        var didFail = false
+        var error = "Unknown error"
 
         init() {
             do {
@@ -39,6 +44,7 @@ extension ContentView {
         func addLocation(at point: CLLocationCoordinate2D) {
             let newLocation = Location(id: UUID(), name: "New location", description: "", latitude: point.latitude, longitude: point.longitude)
             locations.append(newLocation)
+            save()
         }
 
         func update(location: Location) {
@@ -46,6 +52,7 @@ extension ContentView {
 
             if let index = locations.firstIndex(of: selectedPlace) {
                 locations[index] = location
+                save()
             }
         }
 
@@ -61,11 +68,13 @@ extension ContentView {
                     if success {
                         self.isUnlocked = true
                     } else {
-                        // error
+                        self.didFail = true
+                        self.error = "Couldn't authenticate. Please try again."
                     }
                 }
             } else {
-                // no biometrics
+                self.error = "Your device doesn't support biometric authentication."
+                didFail = true
             }
         }
     }
