@@ -40,6 +40,7 @@ struct HorizontalCrewView: View {
                                 Text(crewMember.astronaut.name)
                                    .foregroundStyle(.white)
                                    .font(.headline)
+                                   .accessibilityLabel(crewMember.astronaut.name.replacingOccurrences(of: ".", with: " "))
                                 
                                 Text(crewMember.role)
                                    .foregroundStyle(.white.opacity(0.5))
@@ -71,6 +72,8 @@ struct MissionView: View {
                     .containerRelativeFrame(.horizontal) { width, axis in
                         width * 0.6
                     }
+                    .accessibilityLabel("The mission badge for \(mission.displayName)")
+                    .accessibilityLabel(mission.badge)
                 
                 if mission.launchDate != nil {
                     // String(describing:) to silence error because I am already handling nil anyways no need to add a date type as ??
